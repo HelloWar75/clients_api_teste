@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client as Client;
 use App\Http\Resources\Client as ClientResource;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -23,21 +26,17 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoreClientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
+
+        $validated = $request->validated();
+
         $client = new Client;
-        $client->nome = $request->input('nome');
-        $client->cpf = $request->input('cpf');
-        $client->estado = $request->input('estado');
-        $client->cidade = $request->input("cidade");
-        $client->endereco = $request->input("endereco");
-        $client->cep = $request->input("cep");
-        $client->telefone = $request->input("telefone");
-        $client->celular = $request->input("celular");
-        $client->email = $request->input("email");
+
+        $client->fill($validated);
 
         if( $client->save() ) {
             return new ClientResource($client);
@@ -60,22 +59,25 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdateClientRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateClientRequest $request, $id)
     {
         $client = Client::findOrFail($id);
-        $client->nome = $request->input('nome');
-        $client->cpf = $request->input('cpf');
-        $client->estado = $request->input('estado');
-        $client->cidade = $request->input("cidade");
-        $client->endereco = $request->input("endereco");
-        $client->cep = $request->input("cep");
-        $client->telefone = $request->input("telefone");
-        $client->celular = $request->input("celular");
-        $client->email = $request->input("email");
+
+        $validated = $request->validated();
+
+        $client->nome = $validated['nome'];
+        $client->cpf = $validated['cpf'];
+        $client->estado = $validated['estado'];
+        $client->cidade = $validated['cidade'];
+        $client->endereco = $validated['endereco'];
+        $client->cep = $validated['cep'];
+        $client->telefone = $validated['telefone'];
+        $client->celular = $validated['celular'];
+        $client->email = $validated['email'];
 
         if( $client->save() ) {
             return new ClientResource($client);
