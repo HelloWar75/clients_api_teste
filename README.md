@@ -88,5 +88,6 @@ Após isso você verá o seguinte texto em seu console:
     Starting Laravel development server: http://127.0.0.1:8000
     [Thu Jan 13 18:20:54 2022] PHP 8.0.14 Development Server (http://127.0.0.1:8000) started
 
-Ou seja ele indicou qual url devemos acessar para os testes, junto com o projeto estará disponibilizado um arquivo do insominia para testarmos a aplicação, fica agora um vídeo do teste sendo feito e a instalação do zero.
+Ou seja ele indicou qual url devemos acessar para os testes, junto com o projeto estará disponibilizado um arquivo do insomnia para testarmos a aplicação, fica agora um vídeo do teste sendo feito e a instalação do zero.
 
+Nome do arquivo: clients_api_laravel_Insomnia_2022-01-13.json 
