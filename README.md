@@ -18,7 +18,11 @@ Após isso vamos para etapa de criar o banco de dados MySQL, execute o seguinte 
 
     CREATE DATABASE laravel_api;
 
-Após isso é necessário a configura o arquivo ".env" subistituindo está escrito "NOME_DO_BANCO_DE_DADOS" por o respectivo nome do banco de dados, "NOME_DO_USUARIO_DO_BANCO_DE_DADOS" pelo nome do usuário do MySQL ou MariaDB e "SENHA_DO_SEU_BANCO_DE_DADOS" pela senha do usuário.
+Após isso copie o ".env.exemple" e renomeie para ".env", após isto é necessário rodar o seguinte comando:
+
+    php artisan key:generate
+
+para gerar a chave de segurança, agora podemos prosseguir com a configuração do arquivo ".env" subistituindo está escrito "NOME_DO_BANCO_DE_DADOS" por o respectivo nome do banco de dados, "NOME_DO_USUARIO_DO_BANCO_DE_DADOS" pelo nome do usuário do MySQL ou MariaDB e "SENHA_DO_SEU_BANCO_DE_DADOS" pela senha do usuário.
 
 E caso vá rodar em produção substituir "http://clientes_api.test" pela URL de produção,e o "APP_ENV=local" para  "APP_ENV=production" e por ultimo o "APP_DEBUG=true" por "APP_DEBUG=false".
 
@@ -90,4 +94,5 @@ Após isso você verá o seguinte texto em seu console:
 
 Ou seja ele indicou qual url devemos acessar para os testes, junto com o projeto estará disponibilizado um arquivo do insomnia para testarmos a aplicação, fica agora um vídeo do teste sendo feito e a instalação do zero.
 
-Nome do arquivo: clients_api_laravel_Insomnia_2022-01-13.json 
+Nome do arquivo do insomnia: clients_api_laravel_Insomnia_2022-01-13.json
+Link do video: https://youtu.be/k2Ers0JuZis
